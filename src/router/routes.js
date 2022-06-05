@@ -1,15 +1,18 @@
 const routes = [
     {
-        path:'/',
-        redirect:'/pages'
+        path: '/',
+        redirect: '/index'
     },
     {
         path: '/index',
+        meta: {
+            title: 'index主页面'
+        },
         component: () => import('@view/index.vue')
     },
     {
-        path:'/pages',
-        component:() => import('@view/putopage/index.vue')
+        path: '/pages',
+        component: () => import('@view/putopage/index.vue')
     }
 ]
 
