@@ -12,6 +12,9 @@ const routes = [
     },
     {
         path: '/pages',
+        meta: {
+            title: '修页面'
+        },
         component: () => import('@view/putopage/index.vue')
     }
 ]
