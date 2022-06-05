@@ -9,6 +9,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     vue(),
+    // element plas 按需加载
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
