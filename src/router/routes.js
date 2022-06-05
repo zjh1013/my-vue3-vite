@@ -5,6 +5,9 @@ const routes = [
     },
     {
         path: '/index',
+        meta: {
+            title: 'index主页面'
+        },
         component: () => import('@view/index.vue')
     },
     {
