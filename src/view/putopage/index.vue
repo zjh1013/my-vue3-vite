@@ -1,15 +1,10 @@
 <template>
-  <div>
-145566
-  </div>
+  <div>wqqqewqw</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
