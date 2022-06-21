@@ -36,9 +36,9 @@ export default defineConfig({
       '@store': path.resolve(__dirname, './src/store'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@view': path.resolve(__dirname, './src/view'),
+      '@layout': path.resolve(__dirname, './src/layout'),
     }
   },
-  // less 预处理器配置
   css: {
     preprocessorOptions: {
       less: {
