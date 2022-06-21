@@ -38,6 +38,11 @@
             @change="checkItem(item, index)"
           ></el-checkbox>
         </div>
+        <div>
+          <span v-for="(item, index) in stata.xzCheck" :key="index">{{
+            item.name
+          }}</span>
+        </div>
       </div>
     </div>
   </div>
