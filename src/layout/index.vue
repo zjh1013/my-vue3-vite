@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import menuLeft from "@components/menuLeft.vue";
+import menuLeft from "./components/leftMenu.vue";
 import { reactive, computed } from "vue";
 import { useRoute } from "vue-router";
 
