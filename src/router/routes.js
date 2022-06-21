@@ -17,13 +17,13 @@ const routes = [
         },
         component: () => import('@view/putopage/index.vue')
     },
-    {
-        path:'/child',
-        meta:{
-            title:'子页面'
-        },
-        component:() => import('@view/putopage/child.vue')
-    }
+    // {
+    //     path:'/child',
+    //     meta:{
+    //         title:'子页面'
+    //     },
+    //     component:() => import('@view/putopage/child.vue')
+    // }
 ]
 
 export default routes

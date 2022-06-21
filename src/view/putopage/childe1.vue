@@ -14,7 +14,7 @@ export default defineComponent({
   setup(props,{emit}){
     const newTalk = ()=>{
         console.log('ewergtyuyi');
-        const talk = '12345678987654323456765432'
+        const talk = ''
         emit('listen1',talk)
     }
     return {newTalk}
