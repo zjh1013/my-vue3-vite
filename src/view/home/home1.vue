@@ -10,7 +10,7 @@
       <span>{{ inputValue }}</span>
     </div>
     <div class="con_div2">
-      <el-button @click="editArr">修改</el-button>
+      <el-button type="primary" @click="editArr">修改</el-button>
       <span
         :class="fruitInd == index && 'active'"
         v-for="(item, index) in stata.fruitArr"
@@ -20,7 +20,7 @@
       >
     </div>
     <div class="con_div2">
-      <el-button @click="editInfo">修改</el-button>
+      <el-button type="primary" @click="editInfo">修改</el-button>
       <p>姓名: {{ stata.infoObj.name }}</p>
       <p>年龄: {{ stata.infoObj.age }}</p>
       <p>性别: {{ stata.infoObj.sex }}</p>
@@ -44,7 +44,6 @@ export default {
       },
     });
     const clickItem = (item, index) => {
-      console.log(item, index);
       inputValue.value = item.name;
       fruitInd.value = index;
     };
@@ -103,6 +102,9 @@ export default {
     align-items: center;
     .el_input {
       width: 200px;
+    }
+    > span {
+      margin-left: 20px;
     }
   }
   .con_div2 {
