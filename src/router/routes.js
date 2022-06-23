@@ -26,14 +26,14 @@ const routes = [
                 path: '/one/one1',
                 component: () => import('@view/one/one1.vue'),
                 meta: {
-                    name: 'one1'
+                    name: '练习vue3写法的基础知识'
                 }
             },
             {
                 path: '/one/one2',
-                component: () => import('@view/one/one2.vue'),
+                component: () => import('@view/one/one2/one2.vue'),
                 meta: {
-                    name: 'one2'
+                    name: 'vue3父子之间通信'
                 }
             },
             {
@@ -44,7 +44,7 @@ const routes = [
                 }
             }
         ]
-    },  {
+    }, {
         path: '/pages',
         component: () => import('@layout/index.vue'),
         redirect: '/pages/page1',
