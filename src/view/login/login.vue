@@ -6,23 +6,27 @@
         <div class="body_item">
           <span class="span">用户名:</span>
           <el-input
-            v-model="login.username"
-            placeholder="请输入用户名"
             class="el_input"
+            v-model="username"
+            maxlength="10"
+            placeholder="请输入用户名"
           ></el-input>
         </div>
         <div class="body_item">
           <span class="span">密码:</span>
           <el-input
-            v-model="login.password"
+            class="el_input"
+            v-model.trim="password"
             placeholder="请输入密码"
             type="password"
-            class="el_input"
+            maxlength="10"
           ></el-input>
         </div>
       </div>
       <div class="body_bot">
-        <el-button type="primary" class="el_button">登录</el-button>
+        <el-button type="primary" class="el_button" @click="loginClick"
+          >登录</el-button
+        >
       </div>
     </div>
     <div class="con_logon_pos"></div>
@@ -30,15 +34,40 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
+import { ElMessage } from "element-plus";
+
 export default {
   setup() {
-    const login = ref({
+    const router = useRouter();
+    const login = reactive({
       username: "",
       password: "",
     });
+    const loginClick = () => {
+      if (login.username == "") {
+        ElMessage.error("请输入用户名");
+      } else if (login.password == "") {
+        ElMessage.error("请输入密码");
+      } else if (login.username != "admin" || login.password != "admin") {
+        ElMessage.error("用户名或者密码错误");
+      } else {
+        localStorage.setItem("Authorization", "admin");
+        let Authorization = localStorage.getItem("Authorization");
+        Authorization &&
+          router.push({
+            path: "/",
+          });
+        ElMessage({
+          message: `欢迎${Authorization}登录成功`,
+          type: "success",
+        });
+      }
+    };
     return {
-      login,
+      ...toRefs(login),
+      loginClick,
     };
   },
 };
@@ -54,6 +83,7 @@ export default {
     width: 600px;
     height: 400px;
     position: absolute;
+    // background: palegreen;
     left: 50%;
     top: 50%;
     margin-top: -200px; /* 高度的一半 */

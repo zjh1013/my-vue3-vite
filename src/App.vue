@@ -1,5 +1,4 @@
 <template>
-  <!-- <Index></Index> -->
   <router-view></router-view>
 </template>
 
