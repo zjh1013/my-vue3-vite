@@ -7,7 +7,7 @@
           <span class="span">用户名:</span>
           <el-input
             class="el_input"
-            v-model="username"
+            v-model.trim="username"
             maxlength="10"
             placeholder="请输入用户名"
           ></el-input>
