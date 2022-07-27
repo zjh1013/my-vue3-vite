@@ -8,12 +8,12 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server:{
-    hmr:true,
-    chainWebpack: (config) => {
-      config.resolve.symlinks(true) // 修复热更新失效
-    }
-  },
+  // server:{
+  //   hmr:true,
+  //   chainWebpack: (config) => {
+  //     config.resolve.symlinks(true) // 修复热更新失效
+  //   }
+  // },
   plugins: [
     vue(),
     // element plas 按需加载

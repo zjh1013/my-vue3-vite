@@ -42,8 +42,8 @@ export default {
   setup() {
     const router = useRouter();
     const login = reactive({
-      username: "",
-      password: "",
+      username: "admin",
+      password: "admin",
     });
     const loginClick = () => {
       if (login.username == "") {
@@ -53,11 +53,11 @@ export default {
       } else if (login.username != "admin" || login.password != "admin") {
         ElMessage.error("用户名或者密码错误");
       } else {
-        sessionStorage.setItem("Authorization", "admin");
+        sessionStorage.setItem("Authorization", login.username);
         let Authorization = sessionStorage.getItem("Authorization");
         Authorization &&
           router.push({
-            path: "/",
+            path: "/one",
           });
         ElMessage({
           message: `欢迎${Authorization}登录成功`,
