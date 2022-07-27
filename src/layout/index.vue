@@ -62,10 +62,10 @@ export default {
       return route.matched;
     });
     const userName = computed(() => {
-      return localStorage.getItem("Authorization") || "";
+      return sessionStorage.getItem("Authorization") || "";
     });
     const outLogin = () => {
-      localStorage.removeItem("Authorization");
+      sessionStorage.removeItem("Authorization");
       router.go(0);
     };
     return {

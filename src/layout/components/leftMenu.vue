@@ -14,6 +14,7 @@
         :key="item.path"
       >
         <template #title>
+          <el-icon><Apple /></el-icon>
           <span>{{ item.meta.name }}</span>
         </template>
         <el-menu-item-group>
@@ -33,8 +34,12 @@
 import { ref, reactive } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import routeList from "@router/routes.js";
+import { Apple } from '@element-plus/icons-vue';
 
 export default {
+  components: {
+    Apple
+  },
   setup() {
     const route = useRoute();
     const stata = reactive({

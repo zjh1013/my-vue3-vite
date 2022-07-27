@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
         next();
     } else {
         // 获取 token
-        const token = localStorage.getItem('Authorization');
+        const token = sessionStorage.getItem('Authorization');
         // token 不存在
         if (token === null || token === '') {
             next('/login');

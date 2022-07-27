@@ -5,6 +5,7 @@ import store from '@store/index.js'
 import NProgress from 'nprogress'  // 进度条；进度指示器
 import 'nprogress/nprogress.css' // 进度条；进度指示器 样式
 import 'element-plus/es/components/message/style/css'
+
 NProgress.configure({
     easing: 'ease',  // 动画方式    
     speed: 500,  // 递增进度条的速度    
@@ -19,6 +20,5 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
     NProgress.done()
 })
-
 
 createApp(App).use(router).use(store).mount('#app');

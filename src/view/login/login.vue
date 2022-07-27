@@ -53,8 +53,8 @@ export default {
       } else if (login.username != "admin" || login.password != "admin") {
         ElMessage.error("用户名或者密码错误");
       } else {
-        localStorage.setItem("Authorization", "admin");
-        let Authorization = localStorage.getItem("Authorization");
+        sessionStorage.setItem("Authorization", "admin");
+        let Authorization = sessionStorage.getItem("Authorization");
         Authorization &&
           router.push({
             path: "/",

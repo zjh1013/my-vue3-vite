@@ -19,7 +19,7 @@ const routes = [
         redirect: '/one/one1',
         meta: {
             isshow: true,
-            name: '左家辉'
+            name: 'zjh'
         },
         children: [
             {
@@ -50,7 +50,7 @@ const routes = [
         redirect: '/pages/page1',
         meta: {
             isshow: true,
-            name: '李宁'
+            name: 'ln'
         },
         children: [
             {
