@@ -28,6 +28,7 @@ export default defineComponent({
       });
       // emit("listen", ElMessage); emit 是传输对应的值，如果传入的是方法或者是对象，将字符串的形势展现出来 ，传入的本身是什么展示的就是什么
     };
+    
     return {
       sayToFather,
     };

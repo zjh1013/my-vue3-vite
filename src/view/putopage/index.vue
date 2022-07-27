@@ -4,7 +4,8 @@
       <div class="big_box_left">
         <h1 style="background: #77886e; text-align: center">now</h1>
         <div>{{ children_msg }}</div>
-        <Children :title="msg" @listen="listenToChildren"></Children>
+        <button @click="newbutn">butn</button>
+        <Children :title="msg" @listen="listenToChildren" ref="chile"></Children>
         <!-- {{ children_msg.value }} -->
       </div>
       <div class="big_box_right">
@@ -47,7 +48,31 @@
             >确定</el-button
           >
         </div>
-        <div class="big_box_right_ones"></div>
+        <div class="big_box_right_ones">
+          <input type="button" value="咔嚓"> 
+          <input type="checkbox">
+          <input type="color">
+          <input type="date">
+          <input type="datetime-local">
+          <input type="email">
+          <input type="file">
+          <input type="hidden">
+          <input type="image">
+          <input type="month">
+          <input type="number">
+          <input type="password">
+          <input type="radio" name="1">
+          <input type="radio" name="1">
+          <input type="range">
+          <input type="reset">
+          <input type="search">
+          <input type="submit">
+          <input type="tel">
+          <input type="time">
+          <input type="url">
+          <input type="week">
+          ______________________________________________________
+        </div>
         <div class="big_box_right_ones"></div>
       </div>
     </div>
@@ -102,6 +127,11 @@ export default defineComponent({
    
       stata.someO = value1.value[1]-value1.value[0]
     };
+    let chile = ref(null)
+    let newbutn = ()=>{
+      chile.value.sayToFather()
+      console.log(chile.value)
+    }
     return {
       msg,
       children_msg,
@@ -110,10 +140,12 @@ export default defineComponent({
       stata,
       calendar,
       value1,
+      chile,
       selectDate,
       Surenow,
       listenToChildren,
       checkalls,
+      newbutn,
     };
   },
 });

@@ -1,7 +1,7 @@
 const routes = [
     {
         path: '/',
-        redirect: '/one',
+        redirect: '/login',
         meta: {
             isshow: false
         }
@@ -19,7 +19,7 @@ const routes = [
         redirect: '/one/one1',
         meta: {
             isshow: true,
-            name: '左家辉大傻逼'
+            name: '左家辉'
         },
         children: [
             {
@@ -44,20 +44,34 @@ const routes = [
                 }
             }
         ]
-    }, {
-        path: '/pages',
+    }, {    
+        path: '/two',
         component: () => import('@layout/index.vue'),
-        redirect: '/pages/page1',
+        redirect: '/two/page1',
         meta: {
             isshow: true,
-            name: '李宁大傻逼'
+            name: '李宁'
         },
         children: [
             {
-                path: '/pages/page1',
+                path: '/two/page1',
                 component: () => import('@view/putopage/index.vue'),
                 meta: {
                     name: 'page1'
+                }
+            },
+            {
+                path: '/two/page2',
+                component: () => import('@view/putopage2/index.vue'),
+                meta: {
+                    name: 'page2'
+                }
+            },
+            {
+                path: '/two/page3',
+                component: () => import('@view/putopage3/index.vue'),
+                meta: {
+                    name: 'page3'
                 }
             }
         ]
