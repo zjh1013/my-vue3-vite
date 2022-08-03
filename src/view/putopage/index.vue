@@ -4,7 +4,7 @@
       <div class="big_box_left">
         <h1 style="background: #77886e; text-align: center">now</h1>
         <div>{{ children_msg }}</div>
-        <button @click="newbutn">butn</button>
+        <!-- <button @click="newbutn">butn</button> -->
         <Children :title="msg" @listen="listenToChildren" ref="chile"></Children>
         <!-- {{ children_msg.value }} -->
       </div>
@@ -73,7 +73,10 @@
           <input type="week">
           ______________________________________________________
         </div>
-        <div class="big_box_right_ones"></div>
+        <div class="big_box_right_ones">
+            <!-- <button @click="detiles">进入页面详情</button> -->
+            <router-link to="/detileOne">one</router-link>
+        </div>
       </div>
     </div>
   </div>

@@ -75,7 +75,13 @@ const routes = [
                 }
             }
         ]
-    },
+    },{
+        path:'/detileOne',
+        component: ()=> import('@view/detileOne/index.vue'),
+        meta: {
+            isshow: false
+        }
+    }
 
 ]
 

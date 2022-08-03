@@ -1,15 +1,37 @@
 <template>
   <div id="wrap" :style="{ height: screenHeight + 'px' }">
     <div id="main" :style="{ top: nowTop + 'px' }">
-      <ul id="pageUl" type="circle">
+      <!-- <ul id="pageUl" type="circle">
         <li id="pageUlLi1" class="pageUlLi" :class="{'active': curIndex == 1}">&nbsp;</li>
         <li id="pageUlLi2" class="pageUlLi" :class="{'active': curIndex == 2}">&nbsp;</li>
         <li id="pageUlLi3" class="pageUlLi" :class="{'active': curIndex == 3}">&nbsp;</li>
         <li id="pageUlLi4" class="pageUlLi" :class="{'active': curIndex == 4}">&nbsp;</li>
         <li id="pageUlLi5" class="pageUlLi" :class="{'active': curIndex == 5}">&nbsp;</li>
-      </ul>
-      <div style="background-color: #1b6d85" id="page1" class="page"></div>
-      <div style="background-color: #5cb85c" id="page2" class="page"></div>
+      </ul> -->
+      <div style="background-color: #1b6d85" id="page1" class="page">
+        <div>
+    <article>
+      <section>
+        <video id="video"></video>
+      </section>
+      <section>
+        <audio id="audio"></audio>
+      </section>
+      <button id="btn" @click="tackcapture">拍照</button>
+      <button @click="opening">开启</button>
+      <section>
+        <canvas id="canvas"></canvas>        
+      </section>
+
+    </article>
+  </div>
+
+      </div>
+      <div style="background-color: #5cb85c" id="page2" class="page">
+      <section><img src="" alt="" id="img" /></section>
+      
+      <button @click="btnTakePhotoClicked">保存</button>
+      </div>
       <div style="background-color: #8a6d3b" id="page3" class="page"></div>
       <div style="background-color: #337ab7" id="page4" class="page"></div>
       <div style="background-color: #66512c" id="page5" class="page"></div>
@@ -18,7 +40,7 @@
 </template>
  
 <script>
-  
+  const Address = ''
   export default {
     name: 'Home',
     data(){
@@ -87,9 +109,69 @@
           this.nowTop = this.nowTop - delta * this.screenHeight;
           this.curIndex = index;
         }
+      },
+         opening () {
+      let convas = document.querySelector('#canvas') //
+      let video = document.querySelector('#video')
+      let audio = document.querySelector('audio')
+      let img = document.querySelector('#img')
+      let btn = document.querySelector('button')
+      let context = canvas.getContext('2d')
+      let width = 320 // 视频和canvas的宽度
+      let height = 0 //
+      let streaming = false // 是否开始捕获媒体
+      // 老的浏览器可能根本没有实现 mediaDevices，所以我们可以先设置一个空的对象
+      if (navigator.mediaDevices == undefined) {
+        navigator.mediaDevices = {}
       }
+      // 获取用户媒体,包含视频和音频
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: true })
+        .then((stream) => {
+          video.srcObject = stream // 将捕获的视频流传递给video  放弃window.URL.createObjectURL(stream)的使用
+          video.play() //  播放视频
+          audio.srcObject = stream
+          audio.play()
+        })
+    },
+    tackcapture () {
+      // 需要判断媒体流是否就绪
+      let convas = document.querySelector('#canvas') //
+      let video = document.querySelector('#video')
+      let audio = document.querySelector('audio')
+      let img = document.querySelector('#img')
+      let btn = document.querySelector('button')
+      let context = canvas.getContext('2d')
+      let width = 320 // 视频和canvas的宽度
+      let height = 0 //
+      let streaming = true // 是否开始捕获媒体
+      if (streaming) {
+        context.drawImage(video, 0, 0, 350, 200) // 将视频画面捕捉后绘制到canvas里面
+        img.src = canvas.toDataURL('image/png') // 将canvas的数据传送到img里
+        alert(img.src) // 这边的值可以传入后端
+      }
+      // 监听视频流就位事件,即视频可以播放了
+      video.addEventListener(
+        'canplay',
+        function (ev) {
+          if (!streaming) {
+            height = video.videoHeight / (video.videoWidth / width)
+            video.setAttribute('width', width)
+            video.setAttribute('height', height)
+            canvas.setAttribute('width', width)
+            canvas.setAttribute('height', height)
+            streaming = true
+          }
+        },
+        false
+      )
+    },
+    btnTakePhotoClicked(e){
+      console.log(e)
+      console.log(test.previousElementSibling)
     }
   }
+}
 </script>
 <style>
   html, body {
@@ -111,13 +193,13 @@
     position: relative;
     transition:top 1.5s;
   }
- 
+
   .page {
     /*谨删*/
     width: 100%;
     margin: 0;
   }
- 
+x
   #pageUl {
     position: fixed;
     right: 10px;

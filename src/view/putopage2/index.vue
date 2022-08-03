@@ -4,14 +4,12 @@
       <div class="box_two">
         <div class="box_tow_top">
           <div class="box_two_top_min1">
-            <p class="one" v-for="(item, index) in 10" :key="index">
+            <p class="one" v-for="(item, index) in 12" :key="index">
               {{ item }}
             </p>
           </div>
           <div class="box_two_top_min1"></div>
-
           <div class="box_two_top_min1"></div>
-
           <!-- <div class="box_two_top_min2"></div>
                     <p class="Boders1"></p>
                     <div class="box_two_top_min3"></div> -->
@@ -91,23 +89,26 @@ let citylist = [
 ];
 let cityAll = [];
 let cityAll2 = [];
-let StringName = []
-// citylist.forEach((item,index)=>{
-//   StringName.push(Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1))
-//   console.log(item[index])
-//   if(Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1) == StringName[index]){
-//     if(Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1)==Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1)){
-
-//     }
-//   }
-  
-//   cityAll.push({zm:Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1),children:[{cityName:item.cityName}]})
-// })
-for(let i = 0;i<citylist.length;i++){
-  StringName.push(Pinyin.getFullChars(citylist[i].cityName).toUpperCase().substring(0, 1))
-  console.log(StringName)
+let StringName = [];
+citylist.forEach((item,index)=>{
+  StringName.push(Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1))
+  // console.log(item[index])
+  cityAll.push({zm:Pinyin.getFullChars(item.cityName).toUpperCase().substring(0, 1),children:[{cityName:item.cityName}]})
+})
+let alls = []
+for(let i = 0;i<cityAll.length;i++){
+  // console.log(cityAll[i].zm)
+  if(cityAll2.indexOf(cityAll[i].zm)==-1){
+    // console.log(cityAll[i].zm,cityAll[i].children)
+    cityAll2.push(cityAll[i].zm)
+    // console.log(cityAll[i].children)
+  }
 }
-
+for(let j = 0;j<cityAll.length;j++){
+  for(let i =0 ;i<cityAll2.length;i++){
+}
+}
+console.log(cityAll2,alls)
 console.log(cityAll,StringName)
 export default {};
 </script>
@@ -139,15 +140,15 @@ export default {};
   .box_two_top_min1 {
     // background: rgb(136, 132, 214);
     flex: 1;
-    border-right: 5px solid rgb(63, 203, 231);
+    border-right: 5px solid rgb(237, 202, 76);
     box-shadow: 1px 2px 5px #b9b1b1;
     .one {
       width: 100%;
-      height: 20px;
-      background: blue;
+      height: 21px;
+      background: rgb(8, 154, 141);
     }
     .one:nth-child(odd) {
-      background: red;
+      background: rgb(189, 242, 238);
     }
   }
 }
@@ -163,8 +164,8 @@ export default {};
   }
   .box_two_bottom_min1 {
     flex: 1;
-    border-right: 5px solid rgb(63, 203, 231);
-    border-top: 5px solid rgb(63, 203, 231);
+    border-right: 5px solid rgb(250, 184, 92);
+    border-top: 5px solid rgb(181, 235, 75);
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   }
 }

@@ -6,7 +6,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 
 
-// https://vitejs.dev/config/
+// https://vitejs.dev/config/n
 export default defineConfig({
   // server:{
   //   hmr:true,
